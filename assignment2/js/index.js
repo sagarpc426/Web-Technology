@@ -10,7 +10,8 @@ document.querySelector('#mobileNumber').addEventListener('keypress',getData);
 let emailArr = [];
 let numberArr = [];
 let x = 0;  //initialize counter variable for array
-
+let flag = 0; //initialize flag variable
+let emailFlag = 1; 
 //function to display respecitve pages
 function disp(e) {
     var sec1=document.getElementById("home_page");
@@ -45,8 +46,7 @@ function getData(e){
 
 //function to add rows in the table
 function addRows(){
-    var flag = 0; //initialize flag variable
-    var emailFlag = 1;  //initialize email flag variable
+     //initialize email flag variable
 
     //get user entered data
     var fName = document.getElementById('FirstName').value;
@@ -70,9 +70,7 @@ function addRows(){
     {
       alert("Enter Valid Email...!!!");
     }
-    else
-    {
-      if(emailArr.length>0)    
+    else if(emailArr.length>0)    
       {
         for(var i=0; i<emailArr.length; i++)  //condition to check whether email is registered or not.
         {
@@ -96,9 +94,21 @@ function addRows(){
           }
         }
       }
-    }
-  if (emailFlag == 1)   //if each condition is satisfied then insert row to table
-  {
+    else //if each condition is satisfied then insert row to table
+      insertRow();
+}
+
+
+function insertRow()
+{
+    //get user entered data
+    var fName = document.getElementById('FirstName').value;
+    var lName = document.getElementById('LastName').value;
+    var email = document.getElementById('exampleInputEmail1').value;
+    var number = document.getElementById('mobileNumber').value;
+
+    var table = document.getElementById("registrantList");  //access the table
+
     document.getElementById('noData').style.display = 'none';  //hide no data lable
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
@@ -117,7 +127,6 @@ function addRows(){
     table.appendChild(row);
     alert("Registered Successfully!!!");
     flag = 1;   //set flag variable
-  }
     
 //if data added to table then reset the form
     if(flag == 1){
@@ -125,8 +134,9 @@ function addRows(){
       document.getElementById('LastName').value = '';
       document.getElementById('exampleInputEmail1').value = '';
       document.getElementById('mobileNumber').value = '';
-    }
 }
+}
+
 
 function ValidateEmail() {
       var email = document.getElementById("exampleInputEmail1").value;
@@ -137,9 +147,6 @@ function ValidateEmail() {
         lblError.innerHTML = "Invalid email address.";
   }
 }
-
-
-
 
 function validate(evt) {
   var key = evt.keyCode;
