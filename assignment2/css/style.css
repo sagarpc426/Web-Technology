@@ -101,7 +101,6 @@
 } 
 
 #registrantList {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 80%;
   font-size: 1.5vw;
@@ -121,6 +120,6 @@
 #registrantList th {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #4CAF50;
+  background-color: teal;
   color: white;
 }
