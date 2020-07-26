@@ -6,6 +6,8 @@ document.querySelector('#exampleInputEmail1').addEventListener('keypress',getDat
 document.querySelector('#exampleInputEmail1').addEventListener('keypress',ValidateEmail);
 document.querySelector('#mobileNumber').addEventListener('keypress',getData);
 document.querySelector("#register").addEventListener('click',addBackground);
+document.querySelector("#showList").addEventListener('click',addBackground);
+document.querySelector("#aboutUs").addEventListener('click',addBackground);
 
 
 //create array for email and mobile number
