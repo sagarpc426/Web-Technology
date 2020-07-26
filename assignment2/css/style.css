@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Berkshire+Swash&family=Josefin+Sans&family=Montserrat+Subrayada:wght@700&family=Notable&family=Piedra&display=swap');
 
+
 *{
 	list-style: none;
 	text-decoration: none;
@@ -64,6 +65,8 @@
 }
 
 #registerBlock{
+	color: white;
+	font-weight: bold;
 	position: relative;
 	border: 2px solid;
 	display: block;
@@ -83,15 +86,7 @@
 	display: none;
 }
 
-#registerBlock button{
-  border:1px solid gray;
-  border-radius:7%;
-  font-size:0.875;
-  word-wrap: break-word;
-  width: 100px; 
-  max-width: 60%;
-  margin-left: 33%;
-}
+
 
 #showListBlock table{
 	justify-content: center;
@@ -122,4 +117,64 @@
   padding-bottom: 12px;
   background-color: teal;
   color: white;
+}
+
+h2{
+	text-align: center;
+	font-size: 3vw;
+}
+
+#Singers{
+	font-size: 2vw;
+}
+.wrap1{
+	max-width: 350px;
+	border-radius: 20px;
+	margin: auto;
+	background:rgba(0,0,0,0.8);
+	box-sizing: border-box;
+	padding: 40px;
+	color: #fff;
+	margin-top: 100px;
+	display: none;
+}
+.wrap1 p{
+	text-align: center;
+	text-indent: 2px;
+	direction: rtl;
+	word-spacing: 2px;
+	font-size: 1.5vw;
+}
+
+#registerBlock button{
+ display:inline-block;
+ padding:0.3em 1.2em;
+ margin:0 0.3em 0.3em 0;
+ border-radius:2em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:#FFFFFF;
+ background-color:#4eb5f1;
+ text-align:center;
+ transition: all 0.2s;
+}
+
+#registerBlock button:hover{
+ background-color:#4095c6;
+}
+
+@media all and (max-width:30em){
+ #registerBlock button{
+  display:block;
+  margin:0.2em auto;
+ }
+}
+
+@media screen and (max-width: 600px) {
+  .form-group {
+    width: 100%;
+    margin-top: 0;
+  }
 }
