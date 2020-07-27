@@ -65,16 +65,16 @@
 }
 
 #registerBlock{
-	color: white;
 	font-weight: bold;
 	position: relative;
 	border: 2px solid;
 	display: block;
 	justify-content: center;
-	margin: 2% 30% 3% 30%;
+	margin: 2% 10% 3% 10%;
 	padding: 20px;
 	box-sizing: 10vw;
 	display: none;
+	background: white;
 }
 
 #registerBlock .form-group{
