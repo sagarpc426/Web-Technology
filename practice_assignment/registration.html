@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRN</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		
+		#registerBlock{
+			text-align: center;
+			align-self: center;
+		}
+		header{
+			font-size: 4vw;
+			color: blue;
+			margin: -5% auto auto 25%;
+		}
+
+		.form-group{
+			margin-bottom: 20px;
+			padding: 10px;
+		}
+
+		.form-control{
+			border: none;
+			border-bottom: 2px solid;
+		}
+
+		button{
+			background-color: white;
+			border: 2px solid;
+			padding: 10px;
+			width: 180px;
+			font-size: 20px;
+		}
+
+		button:hover{
+			background-color: black;
+			color: white;
+			cursor: pointer;
+		}
+
+#showListBlock table{
+	justify-content: center;
+	margin-left:auto; 
+    margin-right:auto;
+    margin-top: 3%
+} 
+
+#registrantList {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 1.5vw;
+  justify-content: center;
+}
+
+#registrantList td, #registrantList th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#registrantList tr:nth-child(even)
+{
+	background-color: #f2f2f2;
+}
+
+#registrantList tr:nth-child(odd)
+{
+	background-color: #f2f2f2;
+}
+
+#registrantList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: teal;
+  color: white;
+}
+
+@media all and (max-width:30em){
+ #registerBlock button{
+  display:block;
+  margin:0.2em auto;
+ }
+}
+
+@media screen and (max-width: 600px) {
+  .form-group {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<h2>Registration 2020-21</h2>
+	</header>
+
+	<div class="section" id="registerBlock">
+	<form>
+		<div class="form-group">
+  			<input type="text" class="form-control" id="FirstName" placeholder="First Name">
+  		</div>
+
+  		<div class="form-group">
+  			<input type="text" class="form-control" id="LastName" placeholder="Last Name">
+  		</div>
+
+  		<div class="form-group">
+  			<input type="text" class="form-control" id="mobileNumber" maxlength="10" placeholder="Mobile Number">
+  		</div>
+
+  		<div class="form-group">
+  		<label for="departments">Department:</label>
+		<select name="dept" id="dept">
+  			<option value="computer">Computer</option>
+  			<option value="it">IT</option>
+  			<option value="mech">Mecchanical</option>
+  			<option value="entc">Electronics</option>
+  			<option value="civil">Civil</option>
+  			<option value="chem">Chemical</option>
+		</select>
+		</div>
+
+  		<div class="form-group">
+  			<button type="button" id="register-btn" onclick="getData();">Submit</button>
+  		</div>
+	</form>
+	</div>
+ 	
+	<div class="section" id="showListBlock" style="text-align:center;">
+		<table id="registrantList">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Contact</th>
+				<th>PRN Number</th>
+			</tr>
+		</table>
+		<h4 id = "noData">No Data Available</h4>
+	</div>
+
+	<script type="text/javascript">
+		
+		function getData(){
+			selectDept = document.querySelector('#dept');
+			dept = selectDept.value;
+
+			var fName = document.getElementById('FirstName').value;
+    		var lName = document.getElementById('LastName').value;
+    		var number = document.getElementById('mobileNumber').value;
+
+    		if (fName != '' && lName != '' && number != '' && selectDept != '') {
+    			generatePRN(fName,lName,number,dept);
+    		}
+    		else{
+    			document.getElementById('FirstName').value = '';
+      			document.getElementById('LastName').value = '';
+      			document.getElementById('mobileNumber').value = '';
+      			document.getElementById('selectDept').selectedIndex = -1;
+    		}
+		}
+
+		let rowNum = 1;
+		let batchNum = '01';
+		let padNum = '1';
+		let seqNum ='0';
+		function generatePRN(fName,lName,number,dept){
+
+			var year = '20';
+			seqNum = String("0000" + padNum).slice(-4);
+
+			if (dept == 'computer')
+				var prn = year.concat('CS');
+			
+			else if (dept == 'mech')
+				var prn = year.concat('ME');
+			
+			else if (dept == 'it')
+				var prn = year.concat('IT');
+			
+			else if (dept == 'entc') 
+				var prn = year.concat('EX');
+
+			else if (dept == 'chem')
+				var prn = year.concat('CH');
+
+			else if (dept == 'civil')
+				var prn = year.concat('CV');
+			
+			if (rowNum > 10) {
+				batchNum = '02';
+			}
+
+			prn = prn.concat(batchNum,seqNum);
+			
+			var table = document.getElementById("registrantList");  //access the table
+
+    		document.getElementById('noData').style.display = 'none';  //hide no data lable
+    		var row = table.insertRow(rowNum);
+    		var cell1 = row.insertCell(0);
+    		var cell2 = row.insertCell(1);
+    		var cell3 = row.insertCell(2);
+    		var cell4 = row.insertCell(3);
+    		cell1.innerHTML = fName;
+    		cell2.innerHTML = lName;
+    		cell3.innerHTML = number;
+    		cell4.innerHTML = prn;
+    		rowNum++;
+    		padNum++;
+		}
+	</script>
+
+</body>
+</html>
