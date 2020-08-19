@@ -25,7 +25,7 @@ $('#food-items').change(function(e){
    console.log(selected);
    document.querySelector(".output").innerHTML=`<div class="panel panel-default">
       <div class="panel-heading">
-         <h3 class="panel-title">Menu_items</h3>
+         <h3 class="panel-title">Selected Food:</h3>
       </div>
       <div class="panel-body">
          <div class="row">
