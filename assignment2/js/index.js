@@ -3,11 +3,13 @@ document.querySelector("#register-btn").addEventListener('click',addRows);
 document.querySelector('#FirstName').addEventListener('keypress',getData);
 document.querySelector('#LastName').addEventListener('keypress',getData);
 document.querySelector('#exampleInputEmail1').addEventListener('keypress',getData);
-document.querySelector('#exampleInputEmail1').addEventListener('keypress',ValidateEmail);
+document.querySelector('#exampleInputEmail1').addEventListener('focusout',ValidateEmail);
 document.querySelector('#mobileNumber').addEventListener('keypress',getData);
 document.querySelector("#register").addEventListener('click',addBackground);
 document.querySelector("#showList").addEventListener('click',addBackground);
 document.querySelector("#aboutUs").addEventListener('click',addBackground);
+document.querySelector("#FirstName").addEventListener('keydown',validateName);
+document.querySelector("#LastName").addEventListener('keydown',validateName);
 
 //create array for email and mobile number
 let emailArr = [];
@@ -60,6 +62,30 @@ function getData(e){
   if (e.keyCode != 13 || fName.length<3 && number.length!=10 && email.length<13 )
         return;
 }
+
+
+function validateName(e){
+
+if (e.ctrlKey || e.altKey) {
+    
+      e.preventDefault();
+      
+    } else {
+    
+      var key = e.keyCode;
+      
+      if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+      
+        e.preventDefault();
+        
+      }
+
+    }
+}
+
+
+
+
 
 //function to add rows in the table
 function addRows(){
@@ -165,14 +191,14 @@ function insertRowFun()
   }
 }
 
-
+//validate email address. Reference email - abc@gmail.com
 function ValidateEmail() {
       var email = document.getElementById("exampleInputEmail1").value;
       var lblError = document.getElementById("lblError");
-      lblError.innerHTML = "";
-      var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      var expr = /^[ [\w\.=-]+@([a-zA-Z]{2,4})+\.([a-zA-Z]{2,4})(\]?){2,3}$/;
       if (!expr.test(email)) {
-        lblError.innerHTML = "Invalid email address.";
+        alert("Invalid email address.");
+        document.getElementById("exampleInputEmail1").value = '';
   }
 }
 
