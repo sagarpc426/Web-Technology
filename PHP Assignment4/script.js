@@ -1,5 +1,5 @@
 
-let base_url = "http://sagarrestaurant.000webhostapp.com/restaurant/restaurant.php";
+let base_url = "restaurant.php";
 //let base_url = "http://edutechclsx.000webhostapp.com/api/test/";
 let dropDown = document.getElementById('food-items');
 let option;
