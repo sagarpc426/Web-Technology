@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Berkshire+Swash&family=Josefin+Sans&family=Montserrat+Subrayada:wght@700&family=Notable&family=Piedra&display=swap');
+
+
+
+body{
+			background-image: url();
+			background-repeat: no-repeat;
+			background-size: cover;
+
+}
+
+*{
+	list-style: none;
+	text-decoration: none;
+}
+
+.container {
+	width: 100; 
+	margin: 2px 2px 2px 2px;
+}
+
+#concert-head{
+	position: absolute;
+	top: 30%; 
+	left: 25%; 
+	font-size: 8vw;
+	font-family: 'Allura';
+	color: #fb2274;
+	border-bottom: 2px dotted;
+	font-weight: bold;
+}
+
+#concert-date{
+	position: absolute;
+	top: 55%; 
+	left: 38%; 
+	font-size: 2vw;
+	font-family: 'Notable';
+	background-color: white;
+	color: #fb2274;
+	border: 2px solid;
+	font-weight: bold;
+}
+
+.navbar {
+	justify-content: center;
+	position: relative;
+	background-color: black; 
+}
+
+.navbar ul{
+	display: flex;	
+}
+
+.navbar ul li{
+	margin: 10px 10px 10px 10px;	
+}
+
+.navbar ul li a{
+	color: white;
+	font-weight: bold;
+	font-size: 2vw;
+}
+
+.navbar ul li a:hover{
+	color: #fb2274;
+	cursor: pointer;
+}
+
+
+.form-group{
+	font-size: 1.5vw;
+}
+
+#registerBlock{
+	font-weight: bold;
+	position: relative;
+	border: 2px solid;
+	display: block;
+	justify-content: center;
+	margin: 2% 10% 3% 10%;
+	padding: 20px;
+	box-sizing: 10vw;
+	display: none;
+	background: white;
+}
+
+#registerBlock .form-group{
+	padding: 10px;
+	background: transparent;
+}
+
+#showListBlock{
+	display: none;
+}
+
+
+
+#showListBlock table{
+	justify-content: center;
+	margin-left:auto; 
+    margin-right:auto;
+    margin-top: 3%
+} 
+
+#registrantList {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 1.5vw;
+  justify-content: center;
+}
+
+#registrantList td, #registrantList th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#registrantList tr:nth-child(even)
+{
+	background-color: #f2f2f2;
+}
+
+#registrantList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: teal;
+  color: white;
+}
+
+h2{
+	text-align: center;
+	font-size: 3vw;
+}
+
+#Singers{
+	font-size: 2vw;
+}
+.wrap1{
+	max-width: 600px;
+	border-radius: 20px;
+	margin: auto;
+	background:rgba(0,0,0,0.8);
+	box-sizing: border-box;
+	padding: 40px;
+	color: #fff;
+	margin-top: 50px;
+	display: none;
+}
+.wrap1 p{
+	text-align: center;
+	text-indent: 2px;
+	direction: rtl;
+	word-spacing: 2px;
+	font-size: 1.5vw;
+}
+
+#registerBlock button{
+ display:inline-block;
+ padding:0.3em 1.2em;
+ margin:0 0.3em 0.3em 0;
+ border-radius:2em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:#FFFFFF;
+ background-color:#4eb5f1;
+ text-align:center;
+ transition: all 0.2s;
+}
+
+#registerBlock button:hover{
+ background-color:#4095c6;
+}
+
+@media all and (max-width:30em){
+ #registerBlock button{
+  display:block;
+  margin:0.2em auto;
+ }
+}
+
+@media screen and (max-width: 600px) {
+  .form-group {
+    width: 100%;
+    margin-top: 0;
+  }
+}
