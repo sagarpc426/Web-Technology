@@ -16,7 +16,7 @@ if ($_POST['functionname'] != '') {
 			$phone = $_POST['phone'];
 
 			if ($name!="" && $email!="" && $phone!="") {
-				$sql = "INSERT INTO `trip`.`trip`( `name`, `email`, `phone`,`dt`) VALUES ('$name','$email','$phone', current_timestamp());";
+				$sql = "INSERT INTO `id14770885_trip`.`trip`( `name`, `email`, `phone`,`dt`) VALUES ('$name','$email','$phone', current_timestamp());";
 			if ($conn->query($sql))
 				echo json_encode("Data inserted..!!");
 			else
@@ -47,10 +47,6 @@ if ($_POST['functionname'] != '') {
 			break;
 	}
 
-
-function getData(){
-
-}
 
 }	
 ?>
